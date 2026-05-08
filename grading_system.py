@@ -1,17 +1,27 @@
 # grading_system.py
 # Simple Grading System
+# THIS file takes a student's assignment information and assigns them a letter grade
+
+
+LATE_PENALTY = -10
+ADD_EXTRA_CREDIT = 5
 
 
 # ------------------------------------------------------------
 # Step 1: Get starting information
 # ------------------------------------------------------------
 
+
+
 student_name = input("Student name: ")
 
 score = int(input("Assignment score out of 100: "))
-was_late = input("Was the assignment late? (yes/no): ") == "yes"
-extra_credit_completed = input("Was extra credit completed? (yes/no): ") == "yes"
+user_was_late = input("Was the assignment late? (yes/no): ") == "yes"
+user_extra_credit_completed = input("Was extra credit completed? (yes/no): ") == "yes"
 
+#use boolean variables to verify input
+was_late = user_was_late == "yes"
+extra_credit_completed = user_extra_credit_completed == "yes"
 
 # These variables will be updated by your decision structures.
 final_score = score
@@ -28,8 +38,9 @@ message = ""
 # If the assignment was late:
 # - subtract 10 from final_score
 # - set message to "Late penalty applied."
-
-
+if was_late:
+    final_score - LATE_PENALTY
+    message - 'Late penalty applied' 
 
 
 # ------------------------------------------------------------
@@ -40,6 +51,11 @@ message = ""
 # If extra credit was completed:
 # - add 5 to final_score
 # - set message to "Extra credit applied."
+if extra_credit_completed:
+    extra_credit_completed - ADD_EXTRA_CREDIT
+    message - 'Extra points applied'
+
+
 
 
 
@@ -53,9 +69,14 @@ message = ""
 #
 # If final_score is greater than 100:
 # - set final_score to 100
+if final_score:
+    final_score > 99
+  
 #
 # Else if final_score is less than 0:
 # - set final_score to 0
+elif final_score:
+    final_score < 25
 #
 # Else:
 # - leave final_score unchanged
